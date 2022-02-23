@@ -1,0 +1,23 @@
+{
+  "name": "high-quality-readme-generator",
+  "version": "1.0.0",
+  "description": "this is for the project of generating a high quality readme file",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CarolPang17/high-quality-README-generator.git"
+  },
+  "author": "Carol Pang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CarolPang17/high-quality-README-generator/issues"
+  },
+  "homepage": "https://github.com/CarolPang17/high-quality-README-generator#readme",
+  "dependencies": {
+    "inquire": "^0.4.8",
+    "inquirer": "^8.2.0"
+  }
+}
