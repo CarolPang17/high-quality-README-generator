@@ -2,8 +2,16 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
 
+
+
 // // TODO: Create an array of questions for user input
 const questions = [
+  {
+    type: "input",
+    name: "title",
+    message: "What is the title of the project?"
+
+  },
   {
     type: "input",
     name: "motivation",
@@ -71,15 +79,16 @@ const questions = [
   },
 ];
 
-// // TODO: Create a function to write README file
 
 
 // // TODO: Create a function to initialize app
 function init() {
- inquirer.prompt(questions)
- .then((allAnswers) => {
-  console.log(allAnswers);
-});
+  inquirer.prompt(questions).then((allAnswers) => {
+    // writeToFile("README.md",allAnswers)
+    // console.log(`now in init() to generatorMarkdown`)
+    // console.log(generatorMarkdown(allAnswers));
+    console.log(allAnswers);
+  });
 }
 
 // // Function call to initialize app
