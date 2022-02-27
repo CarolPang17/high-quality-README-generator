@@ -1,4 +1,4 @@
-// // TODO: Include packages needed for this application
+
 const fs = require("fs");
 const inquirer = require("inquirer");
 const path = require("path");
@@ -7,83 +7,67 @@ const generatorMarkdown = require(path.join(
   "/Develop/utils/generateMarkdown"
 ));
 
-
-// // TODO: Create an array of questions for user input
 const questions = [
   {
     type: "input",
+    name: "username",
+    message: "What is the your username of github?",
+  },
+  {
+    type: "input",
     name: "title",
-    message: "What is the title of the project?"
-
+    message: "What is the title of the project?",
+  },
+  {
+    type: "input",
+    name: "description",
+    message: "Please provide a description of your project?"
+  },
+  {
+    type: "input",
+    name: "installation",
+    message: "What are the steps required to install your project?"
+  },
+  {
+    type: "input",
+    name: "usage",
+    message: "Please provide instructions and examples for use.",
   },
   {
     type: "input",
     name: "motivation",
     message: "What was your motivation?",
-    validate: (motivationInput) => {
-      if (motivationInput) {
-        return true;
-      } else {
-        console.log("Please enter your motivation!");
-        return false;
-      }
-    },
   },
   {
     type: "input",
-    name: "reason",
-    message: "Why did you build this project?",
-    validate: (reasonInput) => {
-      if (reasonInput) {
-        return true;
-      } else {
-        console.log("Please enter why did you build this project!");
-        return false;
-      }
-    },
+    name: "features",
+    message: "what is the Features of this project?"
+  },
+  {
+    type: "list",
+    name: "license",
+    message: "What liscence is being used? please pick one from below",
+    choices: ["other / none","AGPL-3.0","Apache-2.0","BSD-2-Clause","BSD-3-Clause","BSL-1.0","CC0-1.0","EPL-2.0","GPL-2.0","GPL-3.0","LGPL-2.1","MIT","MPL-2.0"]
   },
   {
     type: "input",
-    name: "solvedProblem",
-    message: "What problem does it solve?",
-    validate: (solvedProblemInput) => {
-      if (solvedProblemInput) {
-        return true;
-      } else {
-        console.log("Please enter what problem does it solve!");
-        return false;
-      }
-    },
+    name: "contributing",
+    message:"Who contributed to this project?:"
   },
   {
     type: "input",
-    name: "learned",
-    message: "What did you learn?",
-    validate: (learnedInput) => {
-      if (learnedInput) {
-        return true;
-      } else {
-        console.log("Please enter what did you learn!");
-        return false;
-      }
-    },
-  },
-  {
-    type: "input",
-    name: "standOutPoint",
-    message: "What makes your project stand out?",
-    validate: (standOutPointInput) => {
-      if (standOutPointInput) {
-        return true;
-      } else {
-        console.log("Please enter what makes your project stand out!");
-        return false;
-      }
-    },
-  },
+    name: "tests",
+    message: "What commands are needed to test this app?"
+},
+{
+  type: "input",
+  name: "contact",
+  message: "What is the your contact if anyone have question?",
+}
+
 ];
 
-// TODO: Create a function to write README file
+
 function writeToFile(fileName, data) {
   return new Promise((resolve, reject) => {
     fs.writeFile(fileName, data, (err) => {
@@ -101,20 +85,14 @@ function writeToFile(fileName, data) {
   });
 }
 
-// // TODO: Create a function to initialize app
 function init() {
   inquirer.prompt(questions)
   .then((allAnswers) => {
-    writeToFile("README.md",'try this456')
-    .then(res => {
-      console.log(res)
+    writeToFile("README.md", generatorMarkdown(allAnswers)).then((res) => {
+      console.log(res);
+    });
 
-    // console.log(`now in init() to generatorMarkdown`)
-    // console.log(generatorMarkdown(allAnswers));
-    // console.log(allAnswers);
-  });
-})
+  })
 }
 
-// // Function call to initialize app
- init();
+init();

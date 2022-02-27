@@ -18,6 +18,8 @@
   "homepage": "https://github.com/CarolPang17/high-quality-README-generator#readme",
   "dependencies": {
     "inquire": "^0.4.8",
-    "inquirer": "^8.2.0"
+    "inquirer": "^8.2.0",
+    "node-fetch": "^3.2.0",
+    "octokit": "^1.7.1"
   }
 }
