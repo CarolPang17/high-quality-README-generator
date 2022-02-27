@@ -62,7 +62,7 @@ const questions = [
 {
   type: "input",
   name: "contact",
-  message: "What is the your contact if anyone have question?",
+  message: "What is the your contact email if anyone have question?",
 }
 
 ];
